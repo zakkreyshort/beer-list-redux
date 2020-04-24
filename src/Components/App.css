@@ -1,6 +1,5 @@
 body, html {
   height: 100%;
-  /* background-image: radial-gradient(yellow, gray, black); */
   background-color: indigo;
   text-align: center;
 }
@@ -9,7 +8,6 @@ button {
   border: 3px solid black;
   border-radius: 15px;
   margin: 5px;
-  /* background-image: radial-gradient(black, darkblue, silver); */
   color: ivory;
 }
 

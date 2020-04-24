@@ -20,17 +20,18 @@ function Beer(props) {
     }
 
     return (
+        <React.Fragment>
             <div style={styledComponent}>
                 <h2>Beer name: {props.name}</h2>
                 <h4>Description: {props.description}</h4>
                 <div>{quantity}</div>
       
                 <button onClick={()=> props.whenAddToCartClicked(props)}>Add to cart</button>
-                
                 <button onClick={()=> props.whenRestockClicked(props)}>Change Keg</button>
-                
                 <button onClick={() => props.whenBeerClicked(props.id)}>Remove Beer</button>
             </div>
+
+        </React.Fragment>
         );
 }
 
@@ -38,6 +39,7 @@ function Beer(props) {
 
 Beer.propTypes = {
     name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
     id: PropTypes.string,
     whenBeerClicked: PropTypes.func,
