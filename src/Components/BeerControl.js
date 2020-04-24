@@ -43,7 +43,7 @@ class BeerControl extends React.Component {
         this.setState({masterBeerList: newMasterBeerList, formVisibleOnPage: false});
     }
 
-    handleDeletingMerch = (id) => {
+    handleDeletingBeer = (id) => {
         const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !==id);
         this.setState({masterBeerList: newMasterBeerList, selectedBeer: null});
     }
@@ -61,7 +61,20 @@ class BeerControl extends React.Component {
             name: drink.name,
             type: drink.type,
             description: drink.description,
-            quantity: parseInt(drink.quantity) + 1,
+            quantity: parseInt(drink.quantity) + 124,
+            id: drink.id
+        }
+        const newerList = newMasterBeerList.concat(newDrinkItem)
+        this.setState({masterBeerList: newerList});
+    }
+
+    handleAddToCart = (drink) => {
+        const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== drink.id);
+        const newDrinkItem = {
+            name: drink.name,
+            type: drink.type,
+            description: drink.description,
+            quantity: parseInt(drink.quantity) - 1,
             id: drink.id
         }
         const newerList = newMasterBeerList.concat(newDrinkItem)
@@ -69,6 +82,38 @@ class BeerControl extends React.Component {
     }
 
     render(){
-        
+        let currentlyVisibleState = null;
+        let buttonText = null;
+        if (this.state.formVisibleOnPage){
+            currentlyVisibleState = <NewBeerForm onNewBeerCreation={this.handleAddingNewBeerToList} />;
+            buttonText = "Return to beer list";
+        } else {
+            currentlyVisibleState = <BeerList beerList={this.state.masterBeerList}
+            onBeerSelection={this.handleChangingSelectedBeer}
+            onClickingDelete={this.handleDeletingBeer}
+            onClickingRestock={this.handleRestock}
+            onClickingAddToCart={this.handleAddToCart} />;
+            buttonText = "Add Beer";
+        }
+        return (
+            <React.Fragment>
+                <div style={style1}>
+                    {currentlyVisibleState}
+                </div>
+                <div style={style2}>
+                    <button onClick={this.handleClick}>{buttonText}</button>
+                </div>
+            </React.Fragment>
+        );
     }
 }
+
+const style1 = {
+
+}
+
+const style2 = {
+    display: 'inlineBlock'
+}
+
+export default BeerControl;
