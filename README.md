@@ -1,4 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Beer List
+### A react app where a user can create 'kegs' of beer, pour, remove, and change kegs as it properly increments by the pint.
+### _By Zakkrey Short Last updated April 24, 2020_
+
+## Description
+This is a react applicaiton that was will take data and show it to the user. 
+
+## User Stories:
+* _User can add new beer keg to list_
+* _User can 'pour' pint from keg_
+* _User can change keg_
+* _User can delete keg listings_
+
+## Installation instructions
+
+Clone the project by typing this command into your terminal.
+```sh
+git clone https://github.com/zakkreyjshort/beerlist.git
+```
+
+In the project directory, you can run: 
+
+ ```sh
+ npm start
+```
+
+## Component diagram 
+
+![Component Map](src/BeerListComponentSketch.png)
 
 ## Available Scripts
 
