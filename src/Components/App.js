@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
+import Header from "./Layout/Header";
+import Footer from "./Layout/Footer";
 
 function App() {
   return (
-    <p>header</p>
-    <p>home</p>
-    <p>list</p>
-    <p>checkout</p>
-    <p>footer</p>
+    <React.Fragment>
+      <Header />
+      <Footer />
+    </React.Fragment>
   );
 }
 
