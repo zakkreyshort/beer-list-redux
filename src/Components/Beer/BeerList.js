@@ -24,7 +24,7 @@ function BeerList(props) {
 
 BeerList.propTypes = {
   beerList: PropTypes.array,
-  onMerchSelection: PropTypes.func,
+  onBeerSelection: PropTypes.func,
   onClickingDelete: PropTypes.func
 };
 
