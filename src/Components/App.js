@@ -7,6 +7,9 @@ function App() {
   return (
     <React.Fragment>
       <Header />
+      <hr />
+        
+      <hr />
       <Footer />
     </React.Fragment>
   );
