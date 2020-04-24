@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 function Beer(props) {
     let quantity = '';
-    if (props.quantity <= 10 && props.quantity > 0) {
-        quantity = <h3>You are almost empty, time to order more! Pints remaining: {props.quantity} </h3>;
-    }
-    else if (props.quantity > 10) {
+    // if (props.quantity <= 10 && props.quantity > 0) {
+    //     quantity = <h3>You are almost empty, time to order more! Pints remaining: {props.quantity} </h3>;
+    // }
+    if (props.quantity > 0) {
         quantity = <h3>Pints remaining: {props.quantity}</h3>;
     } else {
         quantity = <h5>Out of stock!</h5>;
@@ -22,7 +22,6 @@ function Beer(props) {
     return (
             <div style={styledComponent}>
                 <h2>Beer name: {props.name}</h2>
-                <h4>Type: {props.type}</h4>
                 <h4>Description: {props.description}</h4>
                 <div>{quantity}</div>
       
@@ -39,7 +38,6 @@ function Beer(props) {
 
 Beer.propTypes = {
     name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
     id: PropTypes.string,
     whenBeerClicked: PropTypes.func,

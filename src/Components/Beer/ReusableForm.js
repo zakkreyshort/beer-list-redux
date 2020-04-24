@@ -12,11 +12,11 @@ function ReusableForm(props) {
                      type='text'
                      name='name'
                      placeholder='Name of beer' /><br />
-                     <input 
+                     {/* <input 
                      required
                      type='text'
                      name='type'
-                     placeholder='Type of beer' /><br />
+                     placeholder='Type of beer' /><br /> */}
                      <input 
                      required
                      type='text'

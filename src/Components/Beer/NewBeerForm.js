@@ -7,7 +7,7 @@ function NewBeerForm(props) {
 
     function handleNewBeerFormSubmission(event){
         event.PreventDefault();
-        props.onNewBeerCreation({name: event.target.name.value, type: event.target.type.value, description: event.target.description.value, quantity: parseInt(event.target.quantity.value), id: v4() });
+        props.onNewBeerCreation({name: event.target.name.value, description: event.target.description.value, quantity: parseInt(event.target.quantity.value), id: v4() });
     }
 
     return (
