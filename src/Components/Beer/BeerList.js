@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 import Beer from './Beer';
 
+
 function BeerList(props) {
 
     return(

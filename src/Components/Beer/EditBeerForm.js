@@ -8,7 +8,8 @@ function EditBeerForm(props) {
     return(
         <React.Fragment>
             <div style={styles}>
-            <ReusableForm buttonText="Update Beer" />
+            <ReusableForm 
+            buttonText="Update Beer" />
             </div>
         </React.Fragment>
     );
