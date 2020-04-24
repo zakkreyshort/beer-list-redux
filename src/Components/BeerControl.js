@@ -62,7 +62,6 @@ class BeerControl extends React.Component {
     const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
     const newBeerItem = {
       name: item.name,
-      type: item.type,
       description: item.description,
       quantity: parseInt(item.quantity) + 1,
       id: item.id
@@ -75,7 +74,6 @@ class BeerControl extends React.Component {
     const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
     const newBeerItem = {
       name: item.name,
-      type: item.type,
       description: item.description,
       quantity: parseInt(item.quantity) - 1,
       id: item.id
@@ -101,7 +99,7 @@ class BeerControl extends React.Component {
     }
     return (
       <React.Fragment>
-        <div style={style1}>
+        <div>
           {currentlyVisibleState}
         </div>
         <div style={style2}>

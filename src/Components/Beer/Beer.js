@@ -42,6 +42,6 @@ Beer.propTypes = {
     id: PropTypes.string,
     whenBeerClicked: PropTypes.func,
     whenRestockClicked: PropTypes.func
-}
+};
 
 export default Beer;
