@@ -27,7 +27,7 @@ function Beer(props) {
       
                 <button onClick={()=> props.whenAddToCartClicked(props)}>Pour Beer</button>
                 <button onClick={()=> props.whenRestockClicked(props)}>Change Keg</button>
-                <button onClick={() => props.whenBeerClicked(props.id)}>Remove Beer</button>
+                <button onClick={() => props.whenBeerClicked(props.id)}>Remove Beer from list</button>
             </div>
 
         </React.Fragment>

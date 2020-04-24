@@ -63,7 +63,7 @@ class BeerControl extends React.Component {
     const newBeerItem = {
       name: item.name,
       description: item.description,
-      quantity: parseInt(item.quantity) + 1,
+      quantity: 124,
       id: item.id
     }
     const newerList = newMasterBeerList.concat(newBeerItem);
