@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 
 function Beer(props) {
     let quantity = '';
-    // if (props.quantity <= 10 && props.quantity > 0) {
-    //     quantity = <h3>You are almost empty, time to order more! Pints remaining: {props.quantity} </h3>;
-    // }
-    if (props.quantity > 0) {
+    if (props.quantity <= 10 && props.quantity > 0) {
+        quantity = <h3>You are almost empty, time to order more! Pints remaining: {props.quantity} </h3>;
+    } else if (props.quantity > 10) {
         quantity = <h3>Pints remaining: {props.quantity}</h3>;
     } else {
         quantity = <h5>Out of stock!</h5>;
@@ -26,7 +25,7 @@ function Beer(props) {
                 <h4>Description: {props.description}</h4>
                 <div>{quantity}</div>
       
-                <button onClick={()=> props.whenAddToCartClicked(props)}>Add to cart</button>
+                <button onClick={()=> props.whenAddToCartClicked(props)}>Pour Beer</button>
                 <button onClick={()=> props.whenRestockClicked(props)}>Change Keg</button>
                 <button onClick={() => props.whenBeerClicked(props.id)}>Remove Beer</button>
             </div>
