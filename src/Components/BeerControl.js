@@ -3,14 +3,13 @@ import BeerList from "./Beer/BeerList";
 import NewBeerForm from "./Beer/NewBeerForm";
 import BeerDetail from "./Beer/BeerDetail";
 import EditBeerForm from "./Beer/EditBeerForm";
-
+import { connect } from 'react-redux';
 
 class BeerControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      masterBeerList: [],
       formVisibleOnPage: false,
       selectedBeer: null,
       editing: false
@@ -43,20 +42,44 @@ class BeerControl extends React.Component {
   }
   
   handleAddingNewBeerToList = (newBeer) => {
-    const newMasterBeerList = this.state.masterBeerList.concat(newBeer);
-    this.setState({masterBeerList: newMasterBeerList, formVisibleOnPage: false});
+    const { dispatch } = this.props;
+    const { id, name, description, quantity } = newBeer;
+    const action = {
+      type: 'ADD_BEER',
+      id: id,
+      name: name,
+      description: description,
+      quantity: quantity
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage: false});
   }
 
   handleDeletingBeer = (id) => {
-    const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== id);
-    this.setState({masterBeerList: newMasterBeerList, selectedBeer: null})
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_BEER',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedBeer: null});
   }
 
   handleEditingBeerInList = (beerToEdit) => {
-    const editedMasterBeerList = this.state.masterBeerList
-      .filter(beer => beer.id !== this.state.selectedBeer.id)
-      .concat(beerToEdit);
-      this.setState({masterBeerList: editedMasterBeerList, editing: false, selectedBeer: null});
+    const { dispatch } = this.props;
+    const { id, name, description, quantity } = beerToEdit;
+    const action = {
+      type: 'ADD_BEER',
+      id: id,
+      name: name,
+      description: description,
+      quantity, quantity,
+    }
+    dispatch(action);
+    this.setState({
+      editing: false,
+      selectedBeer: null
+    });
   }
 
   
@@ -125,5 +148,7 @@ class BeerControl extends React.Component {
 const style2 = {
   display: 'inlineBlock'
 }
+
+BeerControl = connect()(BeerControl);
 
 export default BeerControl;

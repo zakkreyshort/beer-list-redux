@@ -4,11 +4,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import reducer from './reducers/beer-list-reducer';
+import { Provider } from 'react-redux';
+
+const store = createStore(reducer);
+
+store.subscribe(() => 
+  console.log(store.getState())
+);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
+  
   document.getElementById('root')
 );
 
