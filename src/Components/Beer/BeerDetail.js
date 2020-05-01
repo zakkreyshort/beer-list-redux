@@ -8,13 +8,15 @@ function BeerDetail(props){
         <React.Fragment>
             <h1>Beer Detail</h1>
             <h3>{ beer.name }</h3>
+            <button onClick= { props.onClickingEdit }>Update Beer</button>
             <hr />
         </React.Fragment>
     );
 }
 
 BeerDetail.propTypes = {
-    beer: PropTypes.object
+    beer: PropTypes.object,
+    onClickingEdit: PropTypes.func
 };
 
 export default BeerDetail;

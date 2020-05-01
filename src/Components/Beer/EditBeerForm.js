@@ -2,15 +2,23 @@ import React from 'react';
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
 import ReusableForm from './ReusableForm';
+import Beer from './Beer';
 
 function EditBeerForm(props) {
+    const { Beer } = props;
+
+    function handleEditBeerFormSubmission(event){
+        event.preventDefault();
+        props.onEditBeer({name: event.target.name.value, description: event.target.description.value, id: beer.id});
+    }
 
     return(
         <React.Fragment>
-            <div style={styles}>
+            
             <ReusableForm 
+            formSubmissionHandler = {handleEditBeerFormSubmission}
             buttonText="Update Beer" />
-            </div>
+            
         </React.Fragment>
     );
 }

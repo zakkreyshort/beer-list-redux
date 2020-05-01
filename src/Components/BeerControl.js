@@ -2,6 +2,7 @@ import React from "react";
 import BeerList from "./Beer/BeerList";
 import NewBeerForm from "./Beer/NewBeerForm";
 import BeerDetail from "./Beer/BeerDetail";
+import EditBeerForm from "./Beer/EditBeerForm";
 
 
 class BeerControl extends React.Component {
@@ -86,12 +87,17 @@ class BeerControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedBeer != null){
+
+    if(this.state.editing) {
+      currentlyVisibleState = <EditBeerForm beer = {this.state.selectedBeer} onEditBeer = {this.handleEditingBeerInList}/>
+      buttonText = "Return to beer list";
+    }
+    else if (this.state.selectedBeer != null){
       currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer} />
       buttonText= "Return to Beer List";
     }
     else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewBeerForm onNewBeerCreation={this.handleAddingNewBeerToList} />;
+      currentlyVisibleState = <NewBeerForm onNewBeerCreation={this.handleAddingNewBeerToList} onClickingEdit = { this.handleEditClick }/>;
       buttonText = "Return to Beer List";
     } else {
       currentlyVisibleState = <BeerList beerList={this.state.masterBeerList} 
