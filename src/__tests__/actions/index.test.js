@@ -18,6 +18,7 @@ describe('beer list actions', () => {
         expect(actions.addBeer({name: 'ZakkTestIPA', description: 'YummyAF', quantity: 124, id: 1})).toEqual({
             type: 'ADD_BEER',
             name: 'ZakkTestIPA',
+            description: 'YummyAF',
             quantity: 124,
             id: 1
         });
