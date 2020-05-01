@@ -6,6 +6,7 @@ import EditBeerForm from "./Beer/EditBeerForm";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Beer from "./Beer/Beer";
+import * as a from './../actions';
 
 class BeerControl extends React.Component {
 
@@ -24,18 +25,10 @@ class BeerControl extends React.Component {
 
   
   handleClick = () => {
-    if (this.state.selectedBeer != null) {
-      this.setState({
-        selectedBeer: null,
-        editing: false
-      });
-    } else {
-      const { dispatch } = this.props;
-      const action = {
-        type: 'TOGGLE_FORM'
-      }
-      dispatch(action);
-    }
+    const { dispatch } = this.props;
+    const action = a.toggleForm();
+    dispatch(action);
+    this.setState({selectedBeer: null})
   }
 
 
@@ -46,46 +39,29 @@ class BeerControl extends React.Component {
   
   handleAddingNewBeerToList = (newBeer) => {
     const { dispatch } = this.props;
-    const { id, name, description, quantity } = newBeer;
-    const action = {
-      type: 'ADD_BEER',
-      id: id,
-      name: name,
-      description: description,
-      quantity: quantity
-    }
+    const action = a.addBeer(newBeer);
     dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
-  }
+    }
+   
+  
 
   handleDeletingBeer = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: 'DELETE_BEER',
-      id: id
-    }
+    const action = a.deleteBeer(id);
     dispatch(action);
     this.setState({selectedBeer: null});
   }
 
   handleEditingBeerInList = (beerToEdit) => {
     const { dispatch } = this.props;
-    const { id, name, description, quantity } = beerToEdit;
-    const action = {
-      type: 'ADD_BEER',
-      id: id,
-      name: name,
-      description: description,
-      quantity, quantity,
-    }
+    const action = a.addBeer(beerToEdit);
     dispatch(action);
     this.setState({
       editing: false,
       selectedBeer: null
-    });
+    })
   }
 
   
