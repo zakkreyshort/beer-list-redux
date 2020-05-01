@@ -9,9 +9,9 @@ function BeerList(props) {
     <React.Fragment>
       {props.beerList.map((beer) =>
       <Beer
+      whenBeerClicked={props.onBeerSelection}
       whenRestockClicked={props.onClickingRestock} 
       whenAddToCartClicked={props.onClickingAddToCart}
-      whenBeerClicked={props.onClickingDelete}
       name={beer.name}
       description={beer.description}
       quantity={beer.quantity}

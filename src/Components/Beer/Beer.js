@@ -20,7 +20,7 @@ function Beer(props) {
 
     return (
         <React.Fragment>
-            <div style={styledComponent}>
+            <div style={styledComponent} onClick = {() => props.whenBeerClicked(props.id)}>
                 <h2>Beer name: {props.name}</h2>
                 <h4>Description: {props.description}</h4>
                 <div>{quantity}</div>
