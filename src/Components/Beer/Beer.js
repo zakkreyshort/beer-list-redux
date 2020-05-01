@@ -26,7 +26,7 @@ function Beer(props) {
                 <p>{quantity}</p>
       
                 <button onClick={()=> props.whenClickingAddToCart(props.id)}>Pour Beer</button>
-                <button onClick={()=> props.whenRestockClicked(props.id)}>Change Keg</button>
+                <button onClick={()=> props.whenRestockClicked(props.Beer)}>Change Keg</button>
                 <button onClick={() => props.whenClickingDelete(props.id)}>Remove Beer from list</button>
             </div>
 
