@@ -83,7 +83,6 @@ class BeerControl extends React.Component {
   }
   
   render(){
-    console.log(this.state.masterBeerList);
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
@@ -111,9 +110,6 @@ class BeerControl extends React.Component {
   
 }
 
-const style1 = {
-
-}
 
 const style2 = {
   display: 'inlineBlock'
