@@ -2,12 +2,23 @@ import beerListReducer from "../../reducers/beer-list-reducer";
 
 describe('beerListReducer', () => {
 
+    const currentState = {
+        1: {name: 'ZakkTestIPA',
+            description: 'YummyAF',
+            quantity: 124,
+            id: 1},
+        2: {name: 'BrandanTestAle',
+            description: 'Sour but sweet',
+            quantity: 124,
+            id: 2}
+    }
+
     let action;
     const beerData = {
         name: 'ZakkTestIPA',
         description: 'YummyAF',
         quantity: 124,
-        id: 1
+        id: 1 
     };
 
 
@@ -31,6 +42,19 @@ describe('beerListReducer', () => {
                 quantity: quantity,
                 id: id
             }
+        });
+    });
+
+    test('Should successfully delete a beer', () => {
+        action = {
+            type: 'DELETE_BEER',
+            id: 1
+        };
+        expect(beerListReducer(currentState, action)).toEqual({
+            2: {name: 'BrandanTestAle',
+            description: 'Sour but sweet',
+            quantity: 124,
+            id: 2}
         });
     });
 });
