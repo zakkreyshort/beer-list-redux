@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 // import reducer from './reducers/beer-list-reducer';
 import { Provider } from 'react-redux';
-import rootReducer from '../reducers/index';
+import rootReducer from './reducers/index';
 
 const store = createStore(rootReducer);
 
