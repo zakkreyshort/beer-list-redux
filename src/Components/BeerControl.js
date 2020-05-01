@@ -72,8 +72,8 @@ class BeerControl extends React.Component {
       quantity: 124,
       id: item.id
     }
-    const newerList = newBeerList.concat(newBeerItem);
-    this.setState({masterBeerList: newerList});
+    const action = newBeerList.concat(newBeerItem);
+    this.props.dispatch(action);
   }
 
   
@@ -105,7 +105,7 @@ class BeerControl extends React.Component {
     let buttonText = null;
 
     if(this.props.editing) {
-      currentlyVisibleState = <EditBeerForm beer = {this.props.selectedBeer} onEditBeer = {this.handleEditingBeerInList}/>
+      currentlyVisibleState = <EditBeerForm beer = {this.props.selectedBeer} onEditClick = {this.handleEditingBeerInList}/>
       buttonText = "Return to beer list";
     }
     else if (this.state.selectedBeer != null){

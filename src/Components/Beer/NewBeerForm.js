@@ -22,7 +22,7 @@ function NewBeerForm(props) {
 }
 
 NewBeerForm.propTypes = {
-  onNewMerchCreation: PropTypes.func
+  onNewBeerCreation: PropTypes.func
 };
 
 export default NewBeerForm;
