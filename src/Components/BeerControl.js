@@ -6,6 +6,7 @@ import EditBeerForm from "./Beer/EditBeerForm";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
+import * as c from './../actions/ActionTypes';
 
 class BeerControl extends React.Component {
 
@@ -79,6 +80,17 @@ class BeerControl extends React.Component {
   
   
   handleAddToCart = (item) => {
+    // if (beerToUpdate.quantity > 0) {
+    //   const newBeer = {
+    //     name: beerToUpdate.name,
+    //     description: beerToUpdate.description,
+    //     quantity: beerToUpdate.quantity - 1,
+    //     id: beerToUpdate.id,
+    //   }
+    //   const action = a.editBeer
+    // }
+
+
     const newBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
     const newBeerItem = {
       name: item.name,
@@ -134,15 +146,15 @@ const style2 = {
 
 BeerControl.propTypes = {
   masterBeerList: PropTypes.object,
-  selectedBeer: PropTypes.object
+  changingSelectedBeer: PropTypes.func
 };
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     masterBeerList: state.masterBeerList,
     formVisibleOnPage: state.formVisibleOnPage,
-    selectedBeer: state.selectedBeer
+    changingSelectedBeer: state.selectedBeer
   }
 }
 
