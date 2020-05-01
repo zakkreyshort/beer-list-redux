@@ -55,9 +55,8 @@ class BeerControl extends React.Component {
   }
 
   handleEditingBeerInList = (beerToEdit) => {
-    const { dispatch } = this.props;
-    const action = a.addBeer(beerToEdit);
-    dispatch(action);
+    const action = a.editBeer(beerToEdit);
+    this.props.dispatch(action);
     this.setState({
       editing: false,
       selectedBeer: null
@@ -79,27 +78,26 @@ class BeerControl extends React.Component {
 
   
   
-  handleAddToCart = (item) => {
-    // if (beerToUpdate.quantity > 0) {
-    //   const newBeer = {
-    //     name: beerToUpdate.name,
-    //     description: beerToUpdate.description,
-    //     quantity: beerToUpdate.quantity - 1,
-    //     id: beerToUpdate.id,
-    //   }
-    //   const action = a.editBeer
-    // }
-
-
-    const newBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
-    const newBeerItem = {
-      name: item.name,
-      description: item.description,
-      quantity: parseInt(item.quantity) - 1,
-      id: item.id
+  handleAddToCart = (beerToUpdate) => {
+    if (beerToUpdate.quantity > 0) {
+      const newBeer = {
+        name: beerToUpdate.name,
+        description: beerToUpdate.description,
+        quantity: beerToUpdate.quantity - 1,
+        id: beerToUpdate.id,
+      }
+      const action = a.editBeer(newBeer);
+      this.props.dispatch(action);
     }
-    const newerList = newBeerList.concat(newBeerItem);
-    this.setState({masterBeerList: newerList});
+    // const newBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
+    // const newBeerItem = {
+    //   name: item.name,
+    //   description: item.description,
+    //   quantity: parseInt(item.quantity) - 1,
+    //   id: item.id
+    // }
+    // const newerList = newBeerList.concat(newBeerItem);
+    // this.setState({masterBeerList: newerList});
   }
   
   render(){

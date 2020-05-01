@@ -21,3 +21,19 @@ export const addBeer = (beer) => {
 
     }
 };
+
+export const editBeer = (beer) => {
+    const { name, description, quantity, id} = beer;
+    return {
+        type: 'c.EDIT_BEER',
+        name: name,
+        description: description,
+        quantity: quantity,
+        id: id
+    }
+};
+
+export const selectBeer = (id) => ({
+    type: c.SELECT_BEER,
+    id
+});
