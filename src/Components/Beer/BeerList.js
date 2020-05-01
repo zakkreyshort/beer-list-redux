@@ -9,11 +9,11 @@ function BeerList(props) {
     <React.Fragment>
       <hr />
       {Object.values(props.beerList).map((beer) => {
-      return <Beer
+       return <Beer
       whenBeerClicked={props.onBeerSelection}
       whenRestockClicked={props.onClickingRestock} 
-      whenAddToCartClicked={props.onClickingAddToCart}
-      whenClickingDelete={props.onClickingDelete}
+      onClickingAddToCart={props.onClickingAddToCart}
+      onClickingDelete={props.onClickingDelete}
       name={beer.name}
       description={beer.description}
       quantity={beer.quantity}

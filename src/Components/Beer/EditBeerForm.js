@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
 import ReusableForm from './ReusableForm';
 
@@ -28,7 +27,8 @@ function EditBeerForm(props) {
 EditBeerForm.propTypes = {
     onEditClick: PropTypes.func,
     beer: PropTypes.object,
-    editing: PropTypes.bool
+    editing: PropTypes.bool,
+    formSubmissionHandler: PropTypes.func
 }
 
 export default EditBeerForm;

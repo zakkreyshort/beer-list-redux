@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function BeerDetail(props){
-    const { beer } = props;
+
     return (
         <React.Fragment>
-            <h1>Beer Detail</h1>
-            <h3>{ beer.name }</h3>
-            <button onClick= { props.onClickingEdit }>Update Beer</button>
+            <h1>Beer Details</h1>
+            <hr />
+            <p>{ props.name }</p>
+            <p>{props.quantity}</p>
+            <button onClick= {()=> props.onClickingEdit(props.beer)}>Update Beer</button>
             <hr />
         </React.Fragment>
     );

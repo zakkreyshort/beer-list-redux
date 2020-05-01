@@ -15,7 +15,7 @@ function NewBeerForm(props) {
 
       <ReusableForm 
         formSubmissionHandler={handleNewBeerFormSubmission}
-        buttonText="Create new item" />
+        buttonText="Add this beer" />
         
     </ React.Fragment>
   );

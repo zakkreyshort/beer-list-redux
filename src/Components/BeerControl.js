@@ -6,7 +6,7 @@ import EditBeerForm from "./Beer/EditBeerForm";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
-import * as c from './../actions/ActionTypes';
+
 
 class BeerControl extends React.Component {
 
@@ -144,7 +144,8 @@ const style2 = {
 
 BeerControl.propTypes = {
   masterBeerList: PropTypes.object,
-  changingSelectedBeer: PropTypes.func
+  selectedBeer: PropTypes.func,
+  formVisibleOnPage: PropTypes.object
 };
 
 
@@ -152,7 +153,7 @@ const mapStateToProps = state => {
   return {
     masterBeerList: state.masterBeerList,
     formVisibleOnPage: state.formVisibleOnPage,
-    changingSelectedBeer: state.selectedBeer
+    selectedBeer: state.selectedBeer
   }
 }
 

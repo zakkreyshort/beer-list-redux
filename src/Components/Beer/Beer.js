@@ -6,7 +6,7 @@ function Beer(props) {
     if (props.quantity <= 10 && props.quantity > 0) {
         quantity = <h3>You are almost empty, time to order more! Pints remaining: {props.quantity} </h3>;
     } else if (props.quantity > 10) {
-        quantity = <h3>Pints remaining: {props.quantity}</h3>;
+        quantity = <h3>Pints remaining: {props.quantity} </h3>;
     } else {
         quantity = <h5>Out of stock!</h5>;
     }
@@ -21,8 +21,8 @@ function Beer(props) {
     return (
         <React.Fragment>
             <div style={styledComponent} onClick = {() => props.whenBeerClicked(props.id)}>
-                <h2>Beer name: {props.name}</h2>
-                <h4>Description: {props.description}</h4>
+                <h2>Beer name: {props.name} </h2>
+                <h4>Description: {props.description} </h4>
                 <p>{quantity}</p>
       
                 <button onClick={()=> props.whenAddToCartClicked(props.id)}>Pour Beer</button>
@@ -41,9 +41,11 @@ Beer.propTypes = {
     description: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
     id: PropTypes.string,
+    
     whenBeerClicked: PropTypes.func,
     whenRestockClicked: PropTypes.func,
-    whenClickingDelete: PropTypes.func
+    whenClickingDelete: PropTypes.func,
+    onAddToCart: PropTypes.func
 };
 
 export default Beer;
