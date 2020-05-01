@@ -5,7 +5,7 @@ import ReusableForm from './ReusableForm';
 import Beer from './Beer';
 
 function EditBeerForm(props) {
-    const { Beer } = props;
+    const { beer } = props;
 
     function handleEditBeerFormSubmission(event){
         event.preventDefault();
