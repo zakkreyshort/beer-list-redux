@@ -13,4 +13,13 @@ describe('beer list actions', () => {
             type: 'TOGGLE_FORM'
         });
     });
+
+    it('addBeer should create ADD_BEER action', () => {
+        expect(actions.addBeer({name: 'ZakkTestIPA', description: 'YummyAF', quantity: 124, id: 1})).toEqual({
+            type: 'ADD_BEER',
+            name: 'ZakkTestIPA',
+            quantity: 124,
+            id: 1
+        });
+    });
 });
