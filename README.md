@@ -27,7 +27,7 @@ In the project directory, you can run:
 
 ## Component diagram 
 
-![Component Map](src/BeerListComponentSketch.png)
+![Component Map](src/#.png)
 
 ## Available Scripts
 
