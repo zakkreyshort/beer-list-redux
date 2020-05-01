@@ -4,6 +4,8 @@ import NewBeerForm from "./Beer/NewBeerForm";
 import BeerDetail from "./Beer/BeerDetail";
 import EditBeerForm from "./Beer/EditBeerForm";
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Beer from "./Beer/Beer";
 
 class BeerControl extends React.Component {
 
@@ -37,7 +39,7 @@ class BeerControl extends React.Component {
 
 
   handleChangingSelectedBeer = (id) => {
-    const selectedBeer = this.state.masterBeerList.filter(beer => beer.id === id)[0];
+    const selectedBeer = this.props.masterBeerList[id];
     this.setState({selectedBeer: selectedBeer});
   }
   
@@ -123,7 +125,7 @@ class BeerControl extends React.Component {
       currentlyVisibleState = <NewBeerForm onNewBeerCreation={this.handleAddingNewBeerToList} onClickingEdit = { this.handleEditClick }/>;
       buttonText = "Return to Beer List";
     } else {
-      currentlyVisibleState = <BeerList beerList={this.state.masterBeerList} 
+      currentlyVisibleState = <BeerList beerList={this.props.masterBeerList} 
       onBeerSelection={this.handleChangingSelectedBeer}
       onClickingDelete={this.handleDeletingBeer}
       onClickingRestock={this.handleRestock}
@@ -149,6 +151,17 @@ const style2 = {
   display: 'inlineBlock'
 }
 
-BeerControl = connect()(BeerControl);
+BeerControl.propTypes = {
+  masterBeerList: PropTypes.object
+};
+
+
+const mapStateToProps = state => {
+  return {
+    masterBeerList: state
+  }
+}
+
+BeerControl = connect(mapStateToProps)(BeerControl);
 
 export default BeerControl;

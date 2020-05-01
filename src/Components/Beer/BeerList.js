@@ -7,8 +7,9 @@ function BeerList(props) {
   
   return (
     <React.Fragment>
-      {props.beerList.map((beer) =>
-      <Beer
+      <hr />
+      {Object.values(props.beerList).map((beer) => {
+      return <Beer
       whenBeerClicked={props.onBeerSelection}
       whenRestockClicked={props.onClickingRestock} 
       whenAddToCartClicked={props.onClickingAddToCart}
@@ -17,13 +18,13 @@ function BeerList(props) {
       quantity={beer.quantity}
       id={beer.id}
       key={beer.id} />
-      )}
+      })}
     </React.Fragment>
   );
 }
 
 BeerList.propTypes = {
-  beerList: PropTypes.array,
+  beerList: PropTypes.object,
   onBeerSelection: PropTypes.func,
   onClickingDelete: PropTypes.func
 };
