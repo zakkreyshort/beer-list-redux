@@ -5,10 +5,11 @@ import './index.css';
 import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import reducer from './reducers/beer-list-reducer';
+// import reducer from './reducers/beer-list-reducer';
 import { Provider } from 'react-redux';
+import rootReducer from '../reducers/index';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 store.subscribe(() => 
   console.log(store.getState())
