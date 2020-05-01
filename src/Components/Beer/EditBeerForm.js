@@ -1,8 +1,7 @@
 import React from 'react';
 import { v4 } from 'uuid';
-import PropTypes from 'prop-types';
 import ReusableForm from './ReusableForm';
-import Beer from './Beer';
+
 
 function EditBeerForm(props) {
     const { beer } = props;

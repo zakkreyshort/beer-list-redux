@@ -13,6 +13,7 @@ function BeerList(props) {
       whenBeerClicked={props.onBeerSelection}
       whenRestockClicked={props.onClickingRestock} 
       whenAddToCartClicked={props.onClickingAddToCart}
+      whenClickingDelete={props.onClickingDelete}
       name={beer.name}
       description={beer.description}
       quantity={beer.quantity}
@@ -26,7 +27,8 @@ function BeerList(props) {
 BeerList.propTypes = {
   beerList: PropTypes.object,
   onBeerSelection: PropTypes.func,
-  onClickingDelete: PropTypes.func
+  onClickingDelete: PropTypes.func,
+  onClickingRestock: PropTypes.func
 };
 
 export default BeerList;

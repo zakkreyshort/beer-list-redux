@@ -1,5 +1,4 @@
 import React from 'react';
-import Beer from './Beer';
 import PropTypes from 'prop-types';
 
 function BeerDetail(props){
@@ -16,7 +15,8 @@ function BeerDetail(props){
 
 BeerDetail.propTypes = {
     beer: PropTypes.object,
-    onClickingEdit: PropTypes.func
+    onClickingEdit: PropTypes.func,
+    masterBeerList: PropTypes.object
 };
 
 export default BeerDetail;

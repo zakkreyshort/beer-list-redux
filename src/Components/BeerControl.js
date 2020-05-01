@@ -5,7 +5,6 @@ import BeerDetail from "./Beer/BeerDetail";
 import EditBeerForm from "./Beer/EditBeerForm";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Beer from "./Beer/Beer";
 import * as a from './../actions';
 
 class BeerControl extends React.Component {
@@ -66,26 +65,28 @@ class BeerControl extends React.Component {
 
   
   handleRestock = (item) => {
-    const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
+    const newBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
     const newBeerItem = {
       name: item.name,
       description: item.description,
       quantity: 124,
       id: item.id
     }
-    const newerList = newMasterBeerList.concat(newBeerItem);
+    const newerList = newBeerList.concat(newBeerItem);
     this.setState({masterBeerList: newerList});
   }
+
+  
   
   handleAddToCart = (item) => {
-    const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
+    const newBeerList = this.state.masterBeerList.filter(beer => beer.id !== item.id);
     const newBeerItem = {
       name: item.name,
       description: item.description,
       quantity: parseInt(item.quantity) - 1,
       id: item.id
     }
-    const newerList = newMasterBeerList.concat(newBeerItem);
+    const newerList = newBeerList.concat(newBeerItem);
     this.setState({masterBeerList: newerList});
   }
   
@@ -93,8 +94,8 @@ class BeerControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if(this.state.editing) {
-      currentlyVisibleState = <EditBeerForm beer = {this.state.selectedBeer} onEditBeer = {this.handleEditingBeerInList}/>
+    if(this.props.editing) {
+      currentlyVisibleState = <EditBeerForm beer = {this.props.selectedBeer} onEditBeer = {this.handleEditingBeerInList}/>
       buttonText = "Return to beer list";
     }
     else if (this.state.selectedBeer != null){
@@ -132,14 +133,16 @@ const style2 = {
 }
 
 BeerControl.propTypes = {
-  masterBeerList: PropTypes.object
+  masterBeerList: PropTypes.object,
+  selectedBeer: PropTypes.object
 };
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     masterBeerList: state.masterBeerList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    selectedBeer: state.selectedBeer
   }
 }
 
