@@ -66,6 +66,7 @@ _Currently users cannot update or change keg. Working on bugs_
 * Javascript
 * jQuery
 * React
+* Redux
 
 ### License
 
