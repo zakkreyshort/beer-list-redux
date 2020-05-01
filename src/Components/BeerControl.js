@@ -109,7 +109,7 @@ class BeerControl extends React.Component {
       buttonText = "Return to beer list";
     }
     else if (this.state.selectedBeer != null){
-      currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer} />
+      currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer}  />
       buttonText= "Return to Beer List";
     }
     else if (this.props.formVisibleOnPage) {
@@ -125,9 +125,7 @@ class BeerControl extends React.Component {
     }
     return (
       <React.Fragment>
-        <div>
           {currentlyVisibleState}
-        </div>
         <div style={style2}>
           <button onClick={this.handleClick}>{buttonText}</button>
         </div>
@@ -145,7 +143,7 @@ const style2 = {
 BeerControl.propTypes = {
   masterBeerList: PropTypes.object,
   selectedBeer: PropTypes.func,
-  formVisibleOnPage: PropTypes.object
+  formVisibleOnPage: PropTypes.bool
 };
 
 

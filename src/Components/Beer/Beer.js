@@ -25,7 +25,7 @@ function Beer(props) {
                 <h4>Description: {props.description} </h4>
                 <p>{quantity}</p>
       
-                <button onClick={()=> props.whenAddToCartClicked(props.id)}>Pour Beer</button>
+                <button onClick={()=> props.whenClickingAddToCart(props.id)}>Pour Beer</button>
                 <button onClick={()=> props.whenRestockClicked(props.id)}>Change Keg</button>
                 <button onClick={() => props.whenClickingDelete(props.id)}>Remove Beer from list</button>
             </div>
@@ -45,7 +45,7 @@ Beer.propTypes = {
     whenBeerClicked: PropTypes.func,
     whenRestockClicked: PropTypes.func,
     whenClickingDelete: PropTypes.func,
-    onAddToCart: PropTypes.func
+    whenClickingAddToCart: PropTypes.func
 };
 
 export default Beer;
