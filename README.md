@@ -1,7 +1,7 @@
 # Beer List
 ### A react app where a user can create 'kegs' of beer, pour, remove, and change kegs as it properly increments by the pint.
 
-### _By Zakkrey Short Last updated 1 May, 2020_
+### _By Zakkrey Short Last updated 4 May, 2020_
 
 ## Description
 This is a react applicaiton that was will take beer data and show it to the user. User is able to pour a pint, change the keg, and application lets you know when your kegs are low. 
@@ -27,7 +27,7 @@ In the project directory, you can run:
 
 ## Component diagram 
 
-![Component Map](src/#.png)
+![Component Map](src/img/componenttree.jpg)
 
 ## Available Scripts
 
